@@ -78,7 +78,6 @@ M6 – Dashboard hỗ trợ ra quyết định
 ## Chạy chương trình
 
 ```bash
-pip install -r requirements.txt
 streamlit run app.py
 ```
 
