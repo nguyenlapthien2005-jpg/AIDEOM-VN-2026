@@ -1,0 +1,69 @@
+# ════════════════════════════════════════════════════════════════════
+# requirements.txt — AIDEOM-VN 2026
+# Mô hình ra quyết định AI & Kinh tế số Việt Nam
+# 11 bài toán · Tối ưu hóa · Học tăng cường
+# Python 3.10 / 3.11 / 3.12  ·  pip install -r requirements.txt
+# ════════════════════════════════════════════════════════════════════
+
+# ── DASHBOARD & GIAO DIỆN ────────────────────────────────────────────────────
+streamlit>=1.35              # Dashboard chính — app.py (dark theme Indigo-Emerald)
+plotly>=5.20                 # Biểu đồ tương tác (graph_objects, express, make_subplots)
+
+# ── KHOA HỌC DỮ LIỆU LÕI ────────────────────────────────────────────────────
+numpy>=1.26                  # Tính toán ma trận, mảng số, mô phỏng
+pandas>=2.1                  # DataFrame, xử lý dữ liệu bảng
+scipy>=1.12                  # linprog (HiGHS), stats — B2, B4, B5, B6, B10
+
+# ── TỐI ƯU TUYẾN TÍNH & MIP ─────────────────────────────────────────────────
+pulp>=2.8                    # LP/MIP với CBC solver — B2, B4, B5, B10
+                             # Tự động cài CBC, không cần solver riêng
+
+# ── TỐI ƯU ĐA MỤC TIÊU ──────────────────────────────────────────────────────
+pymoo>=0.6.1                 # NSGA-II Pareto (GDP / Phúc lợi / Môi trường) — B7
+
+# ── TRỰC QUAN HÓA BỔ SUNG ───────────────────────────────────────────────────
+matplotlib>=3.8              # Font manager — dò font hệ thống cho PDF export
+seaborn>=0.13                # Heatmap ngành (B3) và heatmap 6 vùng (B4)
+
+# ── XUẤT DỮ LIỆU ─────────────────────────────────────────────────────────────
+openpyxl>=3.1                # Đọc/ghi file .xlsx
+reportlab>=4.1               # Tạo báo cáo PDF (Platypus + pdfgen)
+                             # Để PDF hiển thị tiếng Việt đầy đủ: pip install reportlab[full]
+
+# ════════════════════════════════════════════════════════════════════
+#  GÓI TÙY CHỌN — cần thêm nếu dùng tính năng nâng cao
+# ════════════════════════════════════════════════════════════════════
+
+# cvxpy>=1.5                 # Solver convex nâng cao — B8, B9 (tối ưu động, lao động AI)
+                             # pip install cvxpy
+
+# gymnasium>=0.29            # MDP environment — B11 (Q-learning custom env)
+# stable-baselines3>=2.3     # DQN/PPO nếu nâng cấp Q-table lên Deep Q-Network
+# torch>=2.2                 # Backend cho stable-baselines3
+                             # pip install gymnasium stable-baselines3 torch
+
+# pyomo>=6.7                 # Stochastic programming nâng cao — B10 (EEV vs SP)
+                             # pip install pyomo
+
+# ════════════════════════════════════════════════════════════════════
+#  CÀI ĐẶT NHANH
+# ════════════════════════════════════════════════════════════════════
+#
+#  Cài đầy đủ (khuyên dùng):
+#    pip install -r requirements.txt
+#
+#  Cài tối thiểu để chạy dashboard (không cần RL/DQN):
+#    pip install streamlit plotly numpy pandas scipy pulp pymoo matplotlib seaborn openpyxl
+#
+#  Chạy ứng dụng:
+#    streamlit run app.py
+#
+# ════════════════════════════════════════════════════════════════════
+#  LƯU Ý TƯƠNG THÍCH
+# ════════════════════════════════════════════════════════════════════
+#
+#  • Python 3.10+ bắt buộc (pathlib, typing mới)
+#  • Windows : pulp cài CBC tự động qua pip, không cần thêm bước nào
+#  • macOS/Linux : như trên, hoặc brew install cbc nếu muốn CBC hệ thống
+#  • Streamlit Cloud / Hugging Face : requirements.txt này dùng được trực tiếp
+#  • seaborn : cần cho B3/B4 (heatmap); không cần cho các bài còn lại
