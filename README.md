@@ -1,79 +1,122 @@
-# AIDEOM-VN 2026
+# 🇻🇳 AIDEOM-VN 2026 — Dashboard Kinh Tế Số Việt Nam
 
-## Tổng quan
-
-AIDEOM-VN là hệ thống hỗ trợ ra quyết định phát triển kinh tế số Việt Nam giai đoạn 2026–2035.
-
-Đồ án được xây dựng bằng Python và Streamlit, tích hợp nhiều mô hình tối ưu hóa, phân tích đa tiêu chí và trí tuệ nhân tạo để hỗ trợ hoạch định chính sách.
+> **AI-Driven Decision-making & Economics of Digital Markets — Vietnam**  
+> 11 mô hình ra quyết định & tối ưu hóa cho phát triển kinh tế số Việt Nam 2026–2035
 
 ---
 
-## Các mô hình được tích hợp
+## 📌 Giới thiệu
 
-### B1. Cobb-Douglas & TFP
-Dự báo tăng trưởng GDP dựa trên vốn, lao động và năng suất tổng hợp.
-
-### B2. Linear Programming
-Tối ưu phân bổ ngân sách quốc gia.
-
-### B3. Chỉ số ưu tiên ngành
-Xếp hạng ngành kinh tế theo trọng số chiến lược.
-
-### B4. LP phân bổ 6 vùng
-Phân bổ nguồn lực cho 6 vùng kinh tế Việt Nam.
-
-### B5. Mixed Integer Programming
-Lựa chọn danh mục dự án chuyển đổi số tối ưu.
-
-### B6. TOPSIS
-Xếp hạng mức độ sẵn sàng phát triển của các vùng.
-
-### B7. NSGA-II
-Tối ưu đa mục tiêu GDP – Phúc lợi – Môi trường.
-
-### B8. Tối ưu động
-Phân bổ đầu tư liên thời gian 2026–2035.
-
-### B9. Lao động & AI
-Đánh giá tác động của AI tới việc làm.
-
-### B10. Stochastic Programming
-Tối ưu trong điều kiện bất định.
-
-### B11. Q-Learning
-Mô hình học tăng cường hỗ trợ ra quyết định.
+**AIDEOM-VN** là một ứng dụng Streamlit tương tác trực quan hóa và phân tích **11 bài toán tối ưu hóa kinh tế số** áp dụng cho bối cảnh Việt Nam. Dự án bao gồm các mô hình từ kinh tế lượng cơ bản đến học tăng cường nâng cao.
 
 ---
 
-## Công nghệ sử dụng
+## 🧩 Các mô hình trong dự án
 
-- Python
-- Streamlit
-- Plotly
-- NumPy
-- Pandas
-- SciPy
-- CVXPY
-- PuLP
-- PyMOO
+### 📊 Nhóm 1 — Dự báo & Đo lường
+
+| Bài | Tên | Nội dung |
+|-----|-----|----------|
+| B1 | Cobb-Douglas mở rộng | TFP, MAPE, Growth Accounting, dự báo GDP đến 2030 |
+| B3 | Chỉ số ưu tiên ngành | Priority Score 10 ngành, phân tích độ nhạy |
+
+### 🔧 Nhóm 2 — Tối ưu LP / MIP
+
+| Bài | Tên | Nội dung |
+|-----|-----|----------|
+| B2 | LP Ngân sách 4 hạng mục | linprog, shadow price, phân tích B→Z* |
+| B4 | LP 6 Vùng × 4 Hạng mục | PuLP, CVXPY, ràng buộc công bằng vùng |
+| B5 | MIP 15 Dự án số | PuLP CBC, NPV, budget tích lũy |
+| B6 | TOPSIS 6 vùng 8 tiêu chí | Entropy weights, phân tích độ nhạy w_AI |
+
+### 🧠 Nhóm 3 — Mô hình Nâng cao
+
+| Bài | Tên | Nội dung |
+|-----|-----|----------|
+| B7 | NSGA-II Pareto | pymoo, đa mục tiêu: GDP / Phúc lợi / Môi trường |
+| B8 | Tối ưu động 2026–2035 | CVXPY log-linear, SLSQP, kịch bản sốc |
+| B9 | Lao động & AI | LP phân bổ 30.000 tỷ, 8 ngành, chỉ số NetJob |
+| B10 | Stochastic LP | Pyomo 4 kịch bản, so sánh EEV vs SP |
+| B11 | Q-learning MDP | ε-greedy, 81 trạng thái, 10.000 episodes |
 
 ---
 
-## Cấu trúc hệ thống
+## 🚀 Hướng dẫn cài đặt & chạy
 
-M1 – Dự báo kinh tế
+### 1. Clone repository
 
-M2 – Đánh giá sẵn sàng số
+```bash
+git clone https://github.com/<your-username>/aideom-vn.git
+cd aideom-vn
+```
 
-M3 – Tối ưu phân bổ
+### 2. Cài đặt thư viện
 
-M4 – Mô phỏng lao động
+```bash
+pip install -r requirements.txt
+```
 
-M5 – Đánh giá rủi ro
+### 3. Chạy ứng dụng
 
-M6 – Dashboard hỗ trợ ra quyết định
+```bash
+streamlit run app.py
+```
+
+Ứng dụng sẽ mở tự động tại `http://localhost:8501`
 
 ---
+
+## 📦 Yêu cầu hệ thống
+
+- Python **3.9+**
+- Các thư viện trong `requirements.txt`:
+
+```
+streamlit>=1.35.0
+numpy>=1.26.0
+pandas>=2.2.0
+plotly>=5.22.0
+```
+
+---
+
+## 📁 Cấu trúc dự án
+
+```
+aideom-vn/
+├── app.py               # Mã nguồn chính
+├── requirements.txt     # Danh sách thư viện
+└── README.md            # Tài liệu dự án
+```
+
+---
+
+## 📊 Dữ liệu kinh tế
+
+Dự án sử dụng dữ liệu kinh tế Việt Nam giai đoạn **2020–2025** (GDP, kinh tế số, doanh nghiệp số, nhân lực) và xây dựng các kịch bản dự báo đến **2035**.
+
+| Chỉ số | Giá trị 2025 | Mục tiêu 2030 |
+|--------|-------------|---------------|
+| GDP | 12.848 nghìn tỷ VND | — |
+| Kinh tế số / GDP | 19,5% | 30% |
+| Doanh nghiệp số | 80.100 | — |
+| Nhân lực qua đào tạo | 29,2% | 35% |
+
+---
+
+## 🎨 Giao diện
+
+- **Dark theme** Indigo-Emerald với font *Be Vietnam Pro*
+- Sidebar điều hướng 12 trang
+- Biểu đồ Plotly tương tác: scatter, bar, pie, heatmap, Pareto front, learning curve
+
+---
+
+## 📝 Môn học
+
+> Môn: **Mô hình ra quyết định**  
+> Nội dung: 11 bài toán tối ưu hóa kinh tế số Việt Nam
+
 
 ## Chạy chương trình
 
